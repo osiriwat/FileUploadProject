@@ -3,3 +3,8 @@ c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\File
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\obj\Debug\FileUploadCommon.csprojResolveAssemblyReference.cache
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\obj\Debug\FileUploadCommon.dll
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\obj\Debug\FileUploadCommon.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadCommon\bin\Debug\FileUploadCommon.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadCommon\bin\Debug\FileUploadCommon.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadCommon\obj\Debug\FileUploadCommon.csprojResolveAssemblyReference.cache
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadCommon\obj\Debug\FileUploadCommon.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadCommon\obj\Debug\FileUploadCommon.pdb
