@@ -1,0 +1,5 @@
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\bin\Debug\FileUploadCommon.dll
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\bin\Debug\FileUploadCommon.pdb
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\obj\Debug\FileUploadCommon.csprojResolveAssemblyReference.cache
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\obj\Debug\FileUploadCommon.dll
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadCommon\obj\Debug\FileUploadCommon.pdb

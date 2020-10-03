@@ -1,0 +1,5 @@
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\bin\Debug\FileUploadDataAccess.dll
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\bin\Debug\FileUploadDataAccess.pdb
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.csprojResolveAssemblyReference.cache
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.dll
+c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.pdb
