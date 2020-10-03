@@ -3,3 +3,16 @@ c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\File
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadBusiness\obj\Debug\FileUploadBusiness.csprojResolveAssemblyReference.cache
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadBusiness\obj\Debug\FileUploadBusiness.dll
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadBusiness\obj\Debug\FileUploadBusiness.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadBusiness.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadBusiness.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadCommon.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadData.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadDataAccess.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\EntityFramework.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadCommon.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadDataAccess.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\FileUploadData.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\EntityFramework.xml
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\obj\Debug\FileUploadBusiness.csprojResolveAssemblyReference.cache
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\obj\Debug\FileUploadBusiness.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\obj\Debug\FileUploadBusiness.pdb

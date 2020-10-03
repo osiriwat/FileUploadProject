@@ -3,3 +3,14 @@ c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\File
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.csprojResolveAssemblyReference.cache
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.dll
 c:\users\siriwat\documents\visual studio 2015\Projects\FileUploadDataAccess\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\FileUploadDataAccess.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\FileUploadDataAccess.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\FileUploadCommon.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\FileUploadData.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\FileUploadCommon.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\FileUploadData.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadDataAccess\obj\Debug\FileUploadDataAccess.pdb

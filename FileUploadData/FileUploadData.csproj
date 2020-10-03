@@ -52,10 +52,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="FileUpload.cs">
+      <DependentUpon>FileUploadModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FileUploadModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FileUploadModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FileUploadModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileUploadModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FileUploadModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -82,6 +90,12 @@
     <Content Include="FileUploadModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FileUploadModel.Context.cs</LastGenOutput>
+      <DependentUpon>FileUploadModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="FileUploadModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FileUploadModel.edmx</DependentUpon>
+      <LastGenOutput>FileUploadModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
