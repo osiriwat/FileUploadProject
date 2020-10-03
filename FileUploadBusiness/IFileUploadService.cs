@@ -16,5 +16,6 @@ namespace FileUploadBusiness
         IEnumerable<FileUploadModel> getByStatus(string status);
 
         IEnumerable<FileUploadModel> getAll();
+        String validateFile(string filePath);
     }
 }

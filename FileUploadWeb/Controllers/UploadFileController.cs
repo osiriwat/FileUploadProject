@@ -23,17 +23,29 @@ namespace FileUploadWeb.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file)
         {
+            IFileUploadService serice = new FileUploadBIL();
             if (file != null && file.ContentLength > 0)
-                try
+            {
+                string path = Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(file.FileName));
+                file.SaveAs(path);
+                var msg = serice.validateFile(path);
+                if (String.IsNullOrEmpty(msg))
                 {
-                    string path = Path.Combine(Server.MapPath("~/Files"),Path.GetFileName(file.FileName));
-                    file.SaveAs(path);
-                    ViewBag.Message = "File uploaded successfully";
+                    try
+                    {                        
+                        ViewBag.Message = "File uploaded successfully";
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+
+                    ViewBag.Message = msg;
                 }
+            }
             else
             {
                 ViewBag.Message = "You have not specified a file.";

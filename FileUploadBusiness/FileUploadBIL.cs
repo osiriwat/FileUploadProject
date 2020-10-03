@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FileUploadData;
 using FileUploadData.Model;
 using FileUploadDataAccess;
+using System.IO;
 
 namespace FileUploadBusiness
 {
@@ -35,6 +36,23 @@ namespace FileUploadBusiness
         {
             FileUploadDataAccess.IFileUploadService service = new FileUploadDAL();
             return service.getAll();
+        }
+
+        public String validateFile(string filePath)
+        {
+            FileInfo fi = new FileInfo(filePath);
+            if(((fi.Length / 1024f) / 1024f) >1)
+            {
+                return "";
+            }
+            else if(fi.Extension!="CSV" && fi.Extension!="XML")
+            {
+                return "Unknown format.";
+            }
+            else
+            {
+                return "HTTP Code 200.";
+            }
         }
     }
 }
