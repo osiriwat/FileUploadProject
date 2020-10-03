@@ -14,5 +14,7 @@ namespace FileUploadBusiness
         IEnumerable<FileUploadModel> getByDateRange(DateTime startTranDate, DateTime endTranDate);
 
         IEnumerable<FileUploadModel> getByStatus(string status);
+
+        IEnumerable<FileUploadModel> getAll();
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FileUploadData;
 using FileUploadData.Model;
+using FileUploadDataAccess;
 
 namespace FileUploadBusiness
 {
@@ -28,6 +29,12 @@ namespace FileUploadBusiness
         public bool insert(IEnumerable<FileUpload> fileuploads)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<FileUploadModel> getAll()
+        {
+            FileUploadDataAccess.IFileUploadService service = new FileUploadDAL();
+            return service.getAll();
         }
     }
 }
