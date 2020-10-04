@@ -7,7 +7,7 @@ namespace FileUploadBusiness
 {
     public interface IFileUploadService
     {
-        bool insert(IEnumerable<FileUpload> fileuploads);
+        bool insert(string filePath);
 
         IEnumerable<FileUploadModel> getByCurrency(string currencyCode);
 

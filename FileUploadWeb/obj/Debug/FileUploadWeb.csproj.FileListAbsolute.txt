@@ -92,3 +92,5 @@ C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadBusiness.pdb
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadData.pdb
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadDataAccess.dll
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadDataAccess.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadCommon.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadCommon.pdb

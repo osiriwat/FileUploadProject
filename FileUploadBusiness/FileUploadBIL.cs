@@ -7,11 +7,13 @@ using FileUploadData;
 using FileUploadData.Model;
 using FileUploadDataAccess;
 using System.IO;
+using FileUploadCommon;
 
 namespace FileUploadBusiness
 {
     public class FileUploadBIL : IFileUploadService
     {
+        FileUploadDataAccess.IFileUploadService service = null;
         public IEnumerable<FileUploadModel> getByCurrency(string currencyCode)
         {
             throw new NotImplementedException();
@@ -27,14 +29,21 @@ namespace FileUploadBusiness
             throw new NotImplementedException();
         }
 
-        public bool insert(IEnumerable<FileUpload> fileuploads)
+        public bool insert(string filePath)
         {
-            throw new NotImplementedException();
+            var result = false;
+            var validMsg= validateFile(filePath);
+            if (validMsg== "HTTP Code 200.")
+            {
+                service = new FileUploadDAL();
+                result = service.insert(CsvHelper.convertCsvToModel(filePath));
+            }
+            return result;
         }
 
         public IEnumerable<FileUploadModel> getAll()
         {
-            FileUploadDataAccess.IFileUploadService service = new FileUploadDAL();
+            service = new FileUploadDAL();
             return service.getAll();
         }
 
@@ -43,9 +52,9 @@ namespace FileUploadBusiness
             FileInfo fi = new FileInfo(filePath);
             if(((fi.Length / 1024f) / 1024f) >1)
             {
-                return "";
+                return "File size is max 1 MB.";
             }
-            else if(fi.Extension!="CSV" && fi.Extension!="XML")
+            else if(fi.Extension.ToUpper()!=".CSV" && fi.Extension.ToUpper()!=".XML")
             {
                 return "Unknown format.";
             }

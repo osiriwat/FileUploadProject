@@ -28,8 +28,8 @@ namespace FileUploadWeb.Controllers
             {
                 string path = Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(file.FileName));
                 file.SaveAs(path);
-                var msg = serice.validateFile(path);
-                if (String.IsNullOrEmpty(msg))
+                var result = serice.insert(path);
+                if (result)
                 {
                     try
                     {                        
@@ -43,7 +43,7 @@ namespace FileUploadWeb.Controllers
                 else
                 {
 
-                    ViewBag.Message = msg;
+                    ViewBag.Message = result;
                 }
             }
             else
