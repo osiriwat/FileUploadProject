@@ -9,6 +9,7 @@ namespace FileUploadCommon
 {
     public class CsvHelper
     {
+        #region static List<FileUpload> convertCsvToModel(string csvFilePath)
         public static List<FileUpload> convertCsvToModel(string csvFilePath)
         {
             Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
@@ -27,7 +28,7 @@ namespace FileUploadCommon
                 fileUpload.TransactionDate = Convert.ToDateTime(removeSpecialCharacter(values[3]));
                 fileUpload.Status = removeSpecialCharacter(values[4]);
                 fileUpload.CreatedDate = now;
-                fileUpload.FileType = "CSV";
+                fileUpload.FileType = UploadEnum.FileType.CSV.ToString();
                 results.Add(fileUpload);
             }
             return results;
@@ -36,6 +37,7 @@ namespace FileUploadCommon
         {
             return s.Replace("\"", "");
         }
+        #endregion
     }
 
 }

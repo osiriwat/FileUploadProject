@@ -8,6 +8,7 @@ using FileUploadData.Model;
 using FileUploadDataAccess;
 using System.IO;
 using FileUploadCommon;
+using static FileUploadCommon.UploadEnum;
 
 namespace FileUploadBusiness
 {
@@ -32,11 +33,19 @@ namespace FileUploadBusiness
         public bool insert(string filePath)
         {
             var result = false;
-            var validMsg= validateFile(filePath);
-            if (validMsg== "HTTP Code 200.")
+            var validMsg = validateFile(filePath);
+            if (validMsg == "HTTP Code 200.")
             {
                 service = new FileUploadDAL();
-                result = service.insert(CsvHelper.convertCsvToModel(filePath));
+
+                if (Path.GetExtension(filePath).Contains(FileType.CSV.ToString()))
+                {
+                    result = service.insert(CsvHelper.convertCsvToModel(filePath));
+                }
+                else
+                {
+                    result = service.insert(XmlHelper.convertXmlToModel(filePath));
+                }
             }
             return result;
         }
@@ -50,11 +59,11 @@ namespace FileUploadBusiness
         public String validateFile(string filePath)
         {
             FileInfo fi = new FileInfo(filePath);
-            if(((fi.Length / 1024f) / 1024f) >1)
+            if (((fi.Length / 1024f) / 1024f) > 1)
             {
                 return "File size is max 1 MB.";
             }
-            else if(fi.Extension.ToUpper()!=".CSV" && fi.Extension.ToUpper()!=".XML")
+            else if (fi.Extension.ToUpper().Contains(FileType.CSV.ToString()) && fi.Extension.ToUpper().Contains(FileType.XML.ToString()))
             {
                 return "Unknown format.";
             }

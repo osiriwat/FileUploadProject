@@ -7,7 +7,6 @@
 <h2>File Upload</h2>
 @using (Html.BeginForm("Upload","UploadFile",FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
-    <label for="file">Upload Image:</label>
     <input type="file" name="file" id="file" /><br><br>
     <input type="submit" value="Upload" />
     <br><br>
