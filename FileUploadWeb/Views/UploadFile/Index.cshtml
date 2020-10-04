@@ -4,37 +4,152 @@
     ViewBag.Title = "Upload File";
 }
 
-<h2>Upload File</h2>
+<script>
+    $(document).ready(function () {
+        callAjax('/UploadFile/GetAll');
+        $("#criteria").fadeOut();
+        $("#reportType").change(function () {
+            var sel = $("#reportType option:selected").val();
+            $("#criteria").fadeIn();
+            $("#currencyPanel").hide();
+            $("#statusPanel").hide();
+            $("#datePanel").hide();
 
-<p>
-    @Html.ActionLink("Upload File", "Upload")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-    </tr>
+            if (sel == 'currency') {
+                $("#currencyPanel").show();
+            }
+            else if (sel == 'date') {
+                $("#datePanel").show();
+            }
+            else if (sel == 'status') {
+                $("#statusPanel").show();
+            }
+            else {
+                $("#criteria").fadeOut();
+                callAjax('/UploadFile/GetAll');
+            }
+        });
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Payment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-        </tr>
-    }
+        $("#search").click(function () {
+            var sel = $("#reportType option:selected").val();
+            if (sel == 'currency') {
+                var data = { currency: $("#currency option:selected").val() }
+                callAjax('/UploadFile/GetByCurrency', data);
+            }
+            else if (sel == 'date') {
+                var data = { startDate: $("#startDate").val(), endDate: $("#endDate").val() }
+                callAjax('/UploadFile/GetByDateRange', data);
+            }
+            else if (sel == 'status') {
+                var data = { status: $("#status option:selected").val() }
+                callAjax('/UploadFile/GetByStatus', data);
+            }        
+        });
 
-</table>
+        function callAjax(url,data) {
+
+            if ($.fn.dataTable.isDataTable('#tblUploadFile')) {
+                table = $('#tblUploadFile').DataTable();
+                table.destroy();
+            }
+
+            table = $('#tblUploadFile').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "paging": false,
+                "ordering": false,
+                "info": false,
+                "bFilter": false,
+                "ajax": {
+                    "url": url,
+                    "type": "GET",
+                    "data": data
+                },
+                "columns": [
+                    { "data": "Id" },
+                    { "data": "Payment" },
+                    { "data": "Status" },
+                ]
+            });
+        }
+    });
+</script>
+
+<br />
+<form>
+    <div class="panel panel-default">
+        <div class="panel-heading">Search By</div>
+        <div class="panel-body">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="reportType">Choose</label>
+                    <select id="reportType" class="form-control nopadding">
+                        <option selected>All</option>
+                        <option value="currency">Currency</option>
+                        <option value="date">Date range</option>
+                        <option value="status">Status</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" id="criteria">
+        <div class="panel-heading">Criteria</div>
+        <div class="panel-body">
+            <div class="form-row">
+                <div class="form-group col-md-3" id="currencyPanel">
+                    <label for="currency">Currency</label>
+                    <select id="currency" class="form-control nopadding">
+                        <option selected>Choose...</option>
+                        <option>USD</option>
+                        <option>EUR</option>
+                        <option>JPY</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3 nopadding" id="statusPanel">
+                    <label for="status">Status</label>
+                    <select id="status" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Approved</option>
+                        <option>Rejected</option>
+                        <option>Done</option>
+                        <option>Failed</option>
+                        <option>Finished</option>
+                    </select>
+                </div>
+                <div class="form-group" id="datePanel">
+                    <div class="form-group col-md-3">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" class="form-control" id="startDate">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="endDate">End Date</label>
+                        <input type="date" class="form-control" id="endDate">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row text-right">
+                <button type="button" id="search" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row form-group">
+        <p>
+            @Html.ActionLink("Upload File", "Upload")
+        </p>
+
+
+        <table id="tblUploadFile" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr></tr>
+        </table>
+    </div>
+</form>

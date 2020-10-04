@@ -41,7 +41,7 @@ namespace FileUploadDataAccess
                 using (var ctx = new FileUploadDbEntities())
                 {
                     result = (from f in ctx.FileUpload
-                              where f.TransactionDate >= startTranDate.Date && f.TransactionDate <= endTranDate
+                              where f.TransactionDate >= startTranDate && f.TransactionDate <= endTranDate
                               select new FileUploadModel { Id = f.TransactionId, Payment = f.Amount.ToString() + " " + f.CurrencyCode, Status = ((f.Status == "Finished" || f.Status == "Done") ? "D" : ((f.Status == "Failed" || f.Status == "Rejected") ? "R" : "A")) }).ToList();
                 }
             }
@@ -112,6 +112,7 @@ namespace FileUploadDataAccess
                 {
                     ctx.FileUpload.AddRange(fileuploads);
                     ctx.SaveChanges();
+                    result = true;
                 }
             }
             catch (Exception ex)

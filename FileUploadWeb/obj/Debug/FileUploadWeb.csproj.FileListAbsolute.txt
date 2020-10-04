@@ -94,3 +94,6 @@ C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadDataAccess.dll
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadDataAccess.pdb
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadCommon.dll
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\FileUploadCommon.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\log4net.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\log4net.xml
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadWeb\bin\log4net.config

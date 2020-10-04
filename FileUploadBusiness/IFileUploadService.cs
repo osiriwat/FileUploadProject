@@ -7,15 +7,15 @@ namespace FileUploadBusiness
 {
     public interface IFileUploadService
     {
-        bool insert(string filePath);
+        ResultModel<FileUploadModel> insert(string filePath);
 
-        IEnumerable<FileUploadModel> getByCurrency(string currencyCode);
+        ResultModel<FileUploadModel> getByCurrency(string currencyCode);
 
-        IEnumerable<FileUploadModel> getByDateRange(DateTime startTranDate, DateTime endTranDate);
+        ResultModel<FileUploadModel> getByDateRange(DateTime startTranDate, DateTime endTranDate);
 
-        IEnumerable<FileUploadModel> getByStatus(string status);
+        ResultModel<FileUploadModel> getByStatus(string status);
 
-        IEnumerable<FileUploadModel> getAll();
+        ResultModel<FileUploadModel> getAll();
 
         String validateFile(string filePath);
     }

@@ -70,6 +70,7 @@
       <DependentUpon>FileUploadModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\FileUploadModel.cs" />
+    <Compile Include="Model\ResultModel.cs" />
     <Compile Include="Model\Transactions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

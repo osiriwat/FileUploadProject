@@ -16,3 +16,5 @@ C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\EntityFramework
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\obj\Debug\FileUploadBusiness.csprojResolveAssemblyReference.cache
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\obj\Debug\FileUploadBusiness.dll
 C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\obj\Debug\FileUploadBusiness.pdb
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\log4net.dll
+C:\Users\SIRIWAT\Desktop\FileUpload\FileUploadBusiness\bin\Debug\log4net.xml

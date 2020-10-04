@@ -14,46 +14,113 @@ namespace FileUploadBusiness
 {
     public class FileUploadBIL : IFileUploadService
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         FileUploadDataAccess.IFileUploadService service = null;
-        public IEnumerable<FileUploadModel> getByCurrency(string currencyCode)
+        public ResultModel<FileUploadModel> getByCurrency(string currencyCode)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<FileUploadModel> getByDateRange(DateTime startTranDate, DateTime endTranDate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<FileUploadModel> getByStatus(string status)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool insert(string filePath)
-        {
-            var result = false;
-            var validMsg = validateFile(filePath);
-            if (validMsg == "HTTP Code 200.")
+            ResultModel<FileUploadModel> result = new ResultModel<FileUploadModel>();
+            try
             {
                 service = new FileUploadDAL();
-
-                if (Path.GetExtension(filePath).Contains(FileType.CSV.ToString()))
-                {
-                    result = service.insert(CsvHelper.convertCsvToModel(filePath));
-                }
-                else
-                {
-                    result = service.insert(XmlHelper.convertXmlToModel(filePath));
-                }
+                result.Status = true;
+                result.Objects = service.getByCurrency(currencyCode);
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.Message = ex.Message;
             }
             return result;
         }
 
-        public IEnumerable<FileUploadModel> getAll()
+        public ResultModel<FileUploadModel> getByDateRange(DateTime startTranDate, DateTime endTranDate)
         {
-            service = new FileUploadDAL();
-            return service.getAll();
+            ResultModel<FileUploadModel> result = new ResultModel<FileUploadModel>();
+            try
+            {
+                service = new FileUploadDAL();
+                result.Status = true;
+                result.Objects = service.getByDateRange(startTranDate, endTranDate);
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.Message = ex.Message;
+            }
+            return result;
+        }
+
+        public ResultModel<FileUploadModel> getByStatus(string status)
+        {
+            ResultModel<FileUploadModel> result = new ResultModel<FileUploadModel>();
+            try
+            {
+                service = new FileUploadDAL();            
+                var mol= service.getByStatus(status);
+                result.TotalRecord = mol.Count();
+                result.Status = true;
+                result.Objects = mol;
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.Message = ex.Message;
+            }
+            return result;
+        }
+
+        public ResultModel<FileUploadModel> insert(string filePath)
+        {
+            log.Info("Start");
+            ResultModel<FileUploadModel> result = new ResultModel<FileUploadModel>();
+            var validMsg = validateFile(filePath);
+            if (validMsg == "HTTP Code 200.")
+            {
+                try
+                {
+                    service = new FileUploadDAL();
+                    if (Path.GetExtension(filePath.ToUpper()).Contains(FileType.CSV.ToString()))
+                    {
+                        result.Status = service.insert(CsvHelper.convertCsvToModel(filePath));
+                    }
+                    else
+                    {
+                        result.Status = service.insert(XmlHelper.convertXmlToModel(filePath));
+                    }
+                    result.Message = validMsg;
+                    log.Info("End");
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.StackTrace);
+                    result.Status = false;
+                    result.Message = ex.Message;
+                }
+            }
+            else
+            {
+                result.Status = false;
+                result.Message = validMsg;
+            }
+            return result;
+        }
+
+        public ResultModel<FileUploadModel> getAll()
+        {
+            ResultModel<FileUploadModel> result = new ResultModel<FileUploadModel>();           
+            try
+            {
+                service = new FileUploadDAL();
+                result.Status = true;
+                result.Objects = service.getAll();
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.Message = ex.Message;
+            }
+            return result;
         }
 
         public String validateFile(string filePath)
@@ -63,7 +130,7 @@ namespace FileUploadBusiness
             {
                 return "File size is max 1 MB.";
             }
-            else if (fi.Extension.ToUpper().Contains(FileType.CSV.ToString()) && fi.Extension.ToUpper().Contains(FileType.XML.ToString()))
+            else if (!fi.Extension.ToUpper().Contains(FileType.CSV.ToString()) && !fi.Extension.ToUpper().Contains(FileType.XML.ToString()))
             {
                 return "Unknown format.";
             }

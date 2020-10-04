@@ -3,15 +3,26 @@
 @{
     ViewBag.Title = "Upload File";
 }
-
-<h2>File Upload</h2>
-@using (Html.BeginForm("Upload","UploadFile",FormMethod.Post,new { enctype = "multipart/form-data" }))
+<br />
+@using (Html.BeginForm("Upload", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="file" id="file" /><br><br>
-    <input type="submit" value="Upload" />
-    <br><br>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">File Upload</div>
+        <div class="panel-body">
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" class="form-control" /><br><br>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="form-control" value="Upload" />
+            </div>
+            <br><br>
+        </div>
+    </div>
     @ViewBag.Message
+    @ViewBag.Error
 }
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
